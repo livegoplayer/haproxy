@@ -8,7 +8,7 @@ then
 	/etc/init.d/rsyslog restart
 fi
 
-haproxy -f /usr/local/etc/haproxy/haproxy.cfg
+haproxy -f "/usr/local/etc/haproxy/haproxy.cfg"
 
 
 
