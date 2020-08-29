@@ -17,7 +17,7 @@ services:
         - ./data/haproxy:/usr/local/etc/haproxy:ro
 
         # 配置文件目录
-        - ./conf/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:rw
+        - ./conf/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
 
         #consul-template
         - ./consul-template:/consul-template
@@ -25,6 +25,8 @@ services:
 
         #sh 目录
         - ./sh:/sh:ro
-      command: /sh/start.sh
+        - ./supervisor:/supervisor
+
+      command: /usr/local/bin/supervisord -n -c /supervisor/conf.d/supervisord.conf
 
 
