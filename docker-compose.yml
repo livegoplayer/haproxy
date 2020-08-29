@@ -13,8 +13,6 @@ services:
         - ./conf/syslog/syslog.conf:/etc/rsyslog.d/syslog.conf
         - ../logs:/var/log
 
-        # 配置文件目录
-        - ./conf/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
         # 持久化目录
         - ./data/haproxy:/usr/local/etc/haproxy:ro
 
