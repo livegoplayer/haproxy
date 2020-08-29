@@ -96,6 +96,6 @@ listen rabbitmq_cluster
     timeout check 5000
     timeout client 30000
     timeout server 30000
-    balance roundrobin{{- range services -}}{{$name := .Name}}{{$service := service .Name}}{{- if and (in .Tags "tcp") (in .Tags "rabbitmq1") -}}    {{- range $service -}}
+    balance roundrobin{{range services}}{{$name := .Name}}{{$service := service .Name}}{{ if and (in .Tags "tcp") (in .Tags "rabbitmq1")}}{{ range $service}}{{ if and (gt .Port 5670) (lt .Port 5680)}}
     server {{$name}} {{.Address}}:{{.Port}} cookie 1 check inter 2000 rise 3 fall 3 weight 2
     {{end}}{{end}}{{end}}
