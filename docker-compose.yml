@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+    haproxy_rabbitmq:
+      build: ./
+      container_name: haproxy_rabbitmq
+      ports:
+         - "5670:5670"
+         - "8000:8000"
+      network_mode: host
+      volumes:
+        #配置日志文件的一部分，剩下的在start.sh内
+        - ./conf/syslog/syslog.conf:/etc/rsyslog.d/syslog.conf
+        - ../logs:/var/log
+
+        # 持久化目录
+        - /path/to/etc/haproxy:/usr/local/etc/haproxy:ro
+
+        # 配置文件目录
+        - ./conf/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+
+        #consul-template
+        - ./consul-template:/consul-template
+        - ./consul-template/consul-template:/usr/local/bin/consul-template:ro
+
+        #sh 目录
+        - ./sh:/sh:ro
+      command: /sh/start.sh
+
+
