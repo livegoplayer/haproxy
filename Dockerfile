@@ -19,7 +19,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     && apt-get install -y bc \
     && apt-get install -y git \
-    && apt-get -yqq install -y python-pip \ 
+    && apt-get install -y rsyslog \
+    && apt-get -yqq install -y python-pip \
     && rm -rf /var/lib/apt/lists/*
 #临时目录
 COPY ./whl/*.* /tmp/
