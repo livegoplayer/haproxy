@@ -18,7 +18,7 @@ services:
         - ../logs:/var/log
 
         #consul-template
-        - ./consul-template:/consul-template:rx
+        - ./consul-template:/consul-template:ro
         - ./consul-template/consul-template:/usr/local/bin/consul-template:ro
 
         #sh 目录
