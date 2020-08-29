@@ -17,7 +17,6 @@ RUN sed -i s@/security.debian.org/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 # 安装opm包管理工具 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        openresty-opm \
     && apt-get install -y bc \
     && apt-get install -y git \
     && apt-get -yqq install -y python-pip \ 
