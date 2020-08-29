@@ -43,7 +43,7 @@ COPY ./sh /sh/
 RUN chmod +x ./sh/*.sh
 
 # 配置文件
-COPY ./conf/haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
+COPY ./conf/haproxy/*.cfg /usr/local/etc/haproxy/
 
 #mkdir
 RUN mkdir /apps
