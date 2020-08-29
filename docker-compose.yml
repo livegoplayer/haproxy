@@ -12,7 +12,7 @@ services:
         #workdir
         - ../:/apps
         #配置日志文件的一部分，剩下的在start.sh内
-        - ./conf/syslog/syslog.conf:/etc/rsyslog.d/haproxy.conf
+        - ./conf/syslog/haproxy.conf:/etc/rsyslog.d/haproxy.conf
         - ../logs:/var/log
 
         #consul-template
