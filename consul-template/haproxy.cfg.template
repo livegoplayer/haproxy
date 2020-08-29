@@ -138,7 +138,7 @@ listen rabbitmq_cluster
     log global
     balance roundrobin{{range service "release.web"}}{{- if and (in .Tags "tcp") (in .Tags "rabbitmq1") -}}
     server {{.Node}} {{.Address}}:{{.Port}} check inter 2000 rise 2 fall 3 weight 1
-    {{end}}
+    {{end}}{{end}}
 
 #backend static_server
 #     mode http
