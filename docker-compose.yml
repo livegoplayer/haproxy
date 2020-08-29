@@ -9,6 +9,8 @@ services:
          - "8000:8000"
       network_mode: host
       volumes:
+        #workdir
+        - ../:/apps
         #配置日志文件的一部分，剩下的在start.sh内
         - ./conf/syslog/syslog.conf:/etc/rsyslog.d/syslog.conf
         - ../logs:/var/log
