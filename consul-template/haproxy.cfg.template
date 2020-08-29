@@ -81,6 +81,10 @@ listen status
      # 设置统计页面认证的用户和密码，如果要设置多个，另起一行写入即可
      stats hide-version
      # 隐藏统计页面上的haproxy版本信息
+     timeout connect 5000
+     timeout check 5000
+     timeout client 30000
+     timeout server 30000
 
 #配置负载均衡
 listen rabbitmq_cluster
@@ -88,6 +92,10 @@ listen rabbitmq_cluster
     mode tcp
     # 继承global中log的定义
     log global
+    timeout connect 5000
+    timeout check 5000
+    timeout client 30000
+    timeout server 30000
     balance roundrobin{{range service "release.web"}}{{- if and (in .Tags "tcp") (in .Tags "rabbitmq1") -}}
     server {{.Node}} {{.Address}}:{{.Port}} check inter 2000 rise 2 fall 3 weight 1
     {{end}}{{end}}
