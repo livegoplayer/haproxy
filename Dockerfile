@@ -44,6 +44,10 @@ RUN chmod +x ./sh/*.sh
 # 配置文件
 COPY ./conf/haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
+#mkdir
+RUN mkdir /apps
+RUN mkdir /apps/logs
+
 #复制Supervisor文件
 RUN mkdir /supervisor
 COPY ./supervisor /supervisor
