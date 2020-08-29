@@ -14,7 +14,7 @@ services:
         - ../logs:/var/log
 
         # 持久化目录
-        - /path/to/etc/haproxy:/usr/local/etc/haproxy:ro
+        - ./data/haproxy:/usr/local/etc/haproxy:ro
 
         # 配置文件目录
         - ./conf/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:rw
