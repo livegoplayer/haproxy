@@ -4,6 +4,8 @@ services:
     haproxy_rabbitmq:
       build: ./
       container_name: haproxy_rabbitmq
+      privileged: true
+
       ports:
          - "5670:5670"
          - "8000:8000"
